@@ -39,13 +39,13 @@
 <h2 id="css-一覧">CSS 一覧</h2>
 <h3 id="リアクションを見やすくする">リアクションを見やすくする</h3>
 <p>by <a href="taiy.html">taiy</a> / <a href="midra.html"><s>Midra</s></a></p>
-<pre class=" language-css"><code class="prism  language-css">/* ノートに付いてる絵文字をちょっとだけ見やすくするやつ (@Midra@submarin.online) */</span>
-/* 他インスタンスの絵文字もちょっとだけ見やすくするやつ (@taiy@submarin.online) */</span>
-/* カスタマイズできるようにしたやつ (@taiy@submarin.online) */</span>
-/* Safariでの表示を修正したやつ (@Midra@submarin.online) */</span>
-/* 1:1以外の絵文字が潰れるのを修正したやつ (@taiy@submarin.online) */</span>
-/* 設定 */</span>
-/*
+<pre class=" language-css"><code class="prism  language-css"><span class="token comment">/* ノートに付いてる絵文字をちょっとだけ見やすくするやつ (@Midra@submarin.online) */</span>
+<span class="token comment">/* 他インスタンスの絵文字もちょっとだけ見やすくするやつ (@taiy@submarin.online) */</span>
+<span class="token comment">/* カスタマイズできるようにしたやつ (@taiy@submarin.online) */</span>
+<span class="token comment">/* Safariでの表示を修正したやつ (@Midra@submarin.online) */</span>
+<span class="token comment">/* 1:1以外の絵文字が潰れるのを修正したやつ (@taiy@submarin.online) */</span>
+<span class="token comment">/* 設定 */</span>
+<span class="token comment">/*
  * 変数名 =&gt; 説明 (初期値)
  * --reactbtn-img =&gt; 画像の高さ (32px)
  * --reactbtn-gap =&gt; ボタン同士の幅 (4px)
@@ -55,7 +55,7 @@
   <span class="token property">--reactbtn-img</span><span class="token punctuation">:</span> <span class="token number">32</span>px<span class="token punctuation">;</span>
   <span class="token property">--reactbtn-gap</span><span class="token punctuation">:</span> <span class="token number">4</span>px<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-/* ボタン全体 */</span>
+<span class="token comment">/* ボタン全体 */</span>
 <span class="token selector"><span class="token class">.article</span> &gt; <span class="token class">.main</span> &gt; <span class="token class">.footer</span> &gt; div &gt; button </span><span class="token punctuation">{</span>
   <span class="token property">display</span><span class="token punctuation">:</span> inline-flex <span class="token important">!important</span><span class="token punctuation">;</span>
   <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
@@ -73,7 +73,7 @@
 <span class="token selector"><span class="token class">.article</span> &gt; <span class="token class">.main</span> &gt; <span class="token class">.footer</span> &gt; div &gt; button<span class="token class">.canToggle</span> </span><span class="token punctuation">{</span>
   <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">1</span>px <span class="token number">1</span>px <span class="token number">2</span>px <span class="token number">0</span>px <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> / <span class="token number">25%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-/* 絵文字 */</span>
+<span class="token comment">/* 絵文字 */</span>
 <span class="token selector"><span class="token class">.article</span> &gt; <span class="token class">.main</span> &gt; <span class="token class">.footer</span> &gt; div &gt; button &gt; img<span class="token class">.mk-emoji</span> </span><span class="token punctuation">{</span>
   <span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--reactbtn-img, <span class="token number">32</span>px<span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
   <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100%</span> <span class="token important">!important</span><span class="token punctuation">;</span>
@@ -85,15 +85,15 @@
 <span class="token selector"><span class="token class">.article</span> &gt; <span class="token class">.main</span> &gt; <span class="token class">.footer</span> &gt; div &gt; button<span class="token class">.canToggle</span> &gt; img<span class="token class">.mk-emoji</span> </span><span class="token punctuation">{</span>
   <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">2</span>px <span class="token number">0</span>px <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> / <span class="token number">25%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-/* カウンター */</span>
+<span class="token comment">/* カウンター */</span>
 <span class="token selector"><span class="token class">.article</span> &gt; <span class="token class">.main</span> &gt; <span class="token class">.footer</span> &gt; div &gt; button &gt; img<span class="token class">.mk-emoji</span> + span </span><span class="token punctuation">{</span>
   <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token function">clamp</span><span class="token punctuation">(</span><span class="token number">6</span>px, <span class="token function">var</span><span class="token punctuation">(</span>--reactbtn-count, <span class="token function">calc</span><span class="token punctuation">(</span><span class="token function">var</span><span class="token punctuation">(</span>--reactbtn-img, <span class="token number">32</span>px<span class="token punctuation">)</span> / <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>, <span class="token number">16</span>px<span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <h3 id="ios14-16でノート外にコンテンツがはみ出す不具合の修正">iOS14-16でノート外にコンテンツがはみ出す不具合の修正</h3>
 <p>by taiy</p>
-<pre class=" language-css"><code class="prism  language-css">/* ノート外にコンテンツがはみ出る不具合の修正(iOS14,15,16) */</span>
-/* 破壊的変更・アイコンの追従表示不可*/</span>
+<pre class=" language-css"><code class="prism  language-css"><span class="token comment">/* ノート外にコンテンツがはみ出る不具合の修正(iOS14,15,16) */</span>
+<span class="token comment">/* 破壊的変更・アイコンの追従表示不可*/</span>
 <span class="token atrule"><span class="token rule">@supports</span> not <span class="token punctuation">(</span><span class="token property">overflow</span><span class="token punctuation">:</span> clip<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
   <span class="token selector"><span class="token class">.notes</span> &gt; div,
   <span class="token class">.renote</span> &gt; div </span><span class="token punctuation">{</span>
@@ -107,7 +107,7 @@
 </code></pre>
 <h3 id="画像の固定解除-ios14用">画像の固定解除 (iOS14用)</h3>
 <p>by taiy</p>
-<pre class=" language-css"><code class="prism  language-css">/* iOS14用・画像の固定解除 */</span>
+<pre class=" language-css"><code class="prism  language-css"><span class="token comment">/* iOS14用・画像の固定解除 */</span>
 <span class="token selector"><span class="token class">.files</span> <span class="token class">.gird-container</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
   <span class="token property">content</span><span class="token punctuation">:</span> none <span class="token important">!important</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -117,9 +117,9 @@
 </code></pre>
 <h3 id="ノートコンテンツの重なり優先度を下げる">ノートコンテンツの重なり優先度を下げる</h3>
 <p>by taiy</p>
-<pre class=" language-css"><code class="prism  language-css">/* ノートのコンテンツの重なりの優先度を下げる */</span>
-/* Renote対応修正版 */</span>
-/* Reply対応修正版 */</span>
+<pre class=" language-css"><code class="prism  language-css"><span class="token comment">/* ノートのコンテンツの重なりの優先度を下げる */</span>
+<span class="token comment">/* Renote対応修正版 */</span>
+<span class="token comment">/* Reply対応修正版 */</span>
 <span class="token selector"><span class="token class">.avatar</span> </span><span class="token punctuation">{</span>
   <span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token important">!important</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
