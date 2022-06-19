@@ -11,10 +11,10 @@
 	<meta property="og:title" content="数字引用 - Submarin Wiki"/>
 	<meta property="og:site_name" content="Submarin Wiki"/>
 	<meta property="og:image" content="https://submarin-wiki.lunachi.me/assets/submariner_bg.png"/>
-	
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6551391800501217"
-     crossorigin="anonymous"></script>
-     <!-- Global site tag (gtag.js) - Google Analytics -->
+		crossorigin="anonymous"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QRNN1J2MKR"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
@@ -32,10 +32,10 @@
 	<link rel="stylesheet" href="../assets/newsubmarin.css">
 </head>
 <body>
-  <div><h1 id="数字引用">数字引用</h1>
+	<div><h1 id="数字引用">数字引用</h1>
 <p>数字引用(すうじいんよう)とは、投稿された文章をパクる際に末尾に数字を入力する文化である。</p>
 <blockquote>
-<p>数字引用を更に数字引用するときは数字を増やさなければならず、もし数字が被った場合、存在を消される[要出典]と言う。</p>
+<p>数字引用を更に数字引用するときは数字を増やさなければならず、もし数字が被った場合、存在を消される[要出典]と言う。 ――taiy</p>
 </blockquote>
 <h2 id="概要">概要</h2>
 <p>「発言」に対して「発言2」「発言3」などと末尾の数字を増やしていく。原文は内部的に1として扱う。</p>
@@ -45,6 +45,57 @@
 内容が無いよ、良くないよ。2<br>
 内容が無いよ、良くないよ。3</p>
 </blockquote>
+<h2 id="プラグイン">プラグイン</h2>
+<p>開発：<a href="taiy.html">taiy</a><br>
+設定画面から<br>
+クライアント設定＞プラグイン＞プラグインのインストール＞コピペ＞インストールで使用できる。</p>
+<pre><code>### {
+  name: "数字引用プラグイン"
+  version: "1.0.0"
+  author: "taiy"
+  description: "ノートメニューに\"数字引用する\"を追加します。"
+  permissions: ["write:notes"]
+}
+
+@numberquote(text) {
+  #len = Str:len(text)
+  #arr = ~ #i len {
+    Str:pick(text i)
+  }
+  Arr:reverse(arr)
+  $flag &lt;- yes
+  $count &lt;- 0
+  #num_arr = ~~ #str arr {
+    ? flag {
+      #s = Str:to_num(str)
+      ? ((Core:type(s) = "num") | (str = "-")) {
+        count &lt;- (count + 1)
+        str
+      } . {
+        flag &lt;- no
+        ""
+      }
+    } . {
+      ""
+    }
+  }
+  Arr:reverse(num_arr)
+  $num_str &lt;- Arr:join(num_arr)
+  ? (num_str = "") {
+    num_str &lt;- "1"
+  }
+  num_str &lt;- Core:to_str((Str:to_num(num_str) + 1))
+  #text_str = Str:slice(text, 1, ((len + 1) - count))
+  `{text_str}{num_str}`
+}
+
+Plugin:register_note_action("数字引用する" @(note) {
+  Mk:api("notes/create" {
+    text: numberquote(note.text)
+    cw: note.cw
+  })
+})
+</code></pre>
 <h2 id="関連項目">関連項目</h2>
 <ul>
 <li><a href="taiy.html">taiy</a></li>
@@ -52,19 +103,21 @@
 <hr>
 <p>numberquote</p>
 </div>
-  <hr>
-  <p>2022 <a href="https://submarin.online">Submarin</a> / <a href="https://submarin.online/@singingintherain">@singingintherain</a></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6551391800501217"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6551391800501217"
-     data-ad-slot="8170850430"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  <p><a href="../index.html">Submarin Wiki Top</a></p>
+	<hr>
+	<center>
+	<p><a href="../index.html">Submarin Wiki Top</a></p>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6551391800501217"
+		crossorigin="anonymous"></script>
+	<ins class="adsbygoogle"
+		style="display:block; text-align:center;"
+		data-ad-layout="in-article"
+		data-ad-format="fluid"
+		data-ad-client="ca-pub-6551391800501217"
+		data-ad-slot="8170850430"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	<p>2022 <a href="https://submarin.online">Submarin</a> / <a href="https://submarin.online/@singingintherain">@singingintherain</a></p>
+	</center>
 </body>
 </html>
