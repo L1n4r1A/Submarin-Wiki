@@ -49,53 +49,8 @@
 <p>開発：<a href="taiy.html">taiy</a><br>
 設定画面から<br>
 クライアント設定＞プラグイン＞プラグインのインストール＞コピペ＞インストールで使用できる。</p>
-<pre><code>### {
-  name: "数字引用プラグイン"
-  version: "1.0.0"
-  author: "taiy"
-  description: "ノートメニューに\"数字引用する\"を追加します。"
-  permissions: ["write:notes"]
-}
-
-@numberquote(text) {
-  #len = Str:len(text)
-  #arr = ~ #i len {
-    Str:pick(text i)
-  }
-  Arr:reverse(arr)
-  $flag &lt;- yes
-  $count &lt;- 0
-  #num_arr = ~~ #str arr {
-    ? flag {
-      #s = Str:to_num(str)
-      ? ((Core:type(s) = "num") | (str = "-")) {
-        count &lt;- (count + 1)
-        str
-      } . {
-        flag &lt;- no
-        ""
-      }
-    } . {
-      ""
-    }
-  }
-  Arr:reverse(num_arr)
-  $num_str &lt;- Arr:join(num_arr)
-  ? (num_str = "") {
-    num_str &lt;- "1"
-  }
-  num_str &lt;- Core:to_str((Str:to_num(num_str) + 1))
-  #text_str = Str:slice(text, 1, ((len + 1) - count))
-  `{text_str}{num_str}`
-}
-
-Plugin:register_note_action("数字引用する" @(note) {
-  Mk:api("notes/create" {
-    text: numberquote(note.text)
-    cw: note.cw
-  })
-})
-</code></pre>
+<p>プラグイン開発：<a href="taiy.html">taiy</a><br>
+配布先：<a href="https://u.taiy.me/aiscript">https://u.taiy.me/aiscript</a></p>
 <h2 id="関連項目">関連項目</h2>
 <ul>
 <li><a href="taiy.html">taiy</a></li>
